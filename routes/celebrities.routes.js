@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
 
 router.get("/celebrities/create", (req, res) => {
-    res.render("/celebrities/new-celebrity.hbs");
+    res.render("./celebrities/new-celebrity.hbs");
   });
 
 router.post("/celebrities/create", (req, res) => {
@@ -12,7 +12,7 @@ router.post("/celebrities/create", (req, res) => {
         res.redirect('/celebrities');
     })
     .catch((err) => {
-        res.render("/celebrities/new-celebrity.hbs");
+        res.render("./celebrities/new-celebrity.hbs");
     })
 })
 
