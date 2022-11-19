@@ -1,6 +1,16 @@
 const router = require("express").Router();
 const Celebrity = require("../models/Celebrity.model");
 
+router.get("/celebrities", async (req, res) => {
+    try{
+        const celebrityList = await Celebrity.find();
+        res.render("./celebrities/celebrities.hbs", { celebrityList: celebrityList });
+    }
+    catch (error) {
+        console.log(err);
+    }
+  });
+
 router.get("/celebrities/create", (req, res) => {
     res.render("./celebrities/new-celebrity.hbs");
   });
