@@ -24,14 +24,7 @@ router.get('/:id', (req,res) =>{
     const { id } = req.params;
     Movie.findById(id)
     .populate('cast')
-    .then(selectedMovie => res.render('movies/movie-details.hbs', {movie: selectedMovie}))
-    .catch(err => res.send(err))
-})
-
-router.post('/:id/delete', (req, res) => {
-    const { id } = req.params;
-    Movie.findByIdAndRemove(id)
-    .then(deletedFilm => res.redirect('/movies'))
+    .then(foundMovie => res.render('movies/movie-details.hbs', {movie: foundMovie}))
     .catch(err => res.send(err))
 })
 
